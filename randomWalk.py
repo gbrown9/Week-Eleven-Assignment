@@ -19,17 +19,25 @@ import random
 
 def main():
     printHeader()
-    for n in range(startRange,endRange,stepRange):
+    for n in range(100,1000,10):
         averageDistance = getRandomWalk(n)
         print("For {} steps, the average distance is: {}".format(n,averageDistance))
 
 
 def printHeader():
-    print("Some informative text")
+    print("You flip a coin. If it comes up heads, you take a step forward; tails means to take a step backward.")
 
 def getRandomWalk(steps):
     # Calculate a random walk of given steps
-    return 0 # replace with actual average
+    
+    location = 0
+     
+    coinFlip = random.randint(0,1) # Calculate random number for direction 
+    if coinFlip == 0:
+        location += 1
+    elif coinFlip == 1:
+        location -= 1
+    return location # replace with actual average
 
 if __name__ == "__main__":
     main()
